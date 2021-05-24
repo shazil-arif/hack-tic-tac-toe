@@ -17,20 +17,35 @@ async function startGame(): Awaitable<void>{
 
   while (!$board->checkWin()){
     $isValidInput = false;
-    while(!$isValidInput){
+    while(true){
       await $out->writeAllAsync($message);
       $input = await $_in->readFixedSizeAsync(4);
       $split = Str\split($input, ' ');
       
       $x = Str\to_int($split[0]);
-      if($x is null) {
-        await check()
+      $y = Str\to_int($split[1]);
+
+      if(!($x is null) && !($y is null)) {
+        $point = new Point($x, $y);
+        
+        if($board->isSet($point)) {
+          await $out->writeAllAsync($point." is already set");
+        }
+        else{
+          play($point, $board);
+        }
+
       }
-      else $isValidInput = true;
     }
   }    
 }
 
-async function check() : Awaitable<void>{
+async function play(Point $point, Board $board) : Awaitable<void>{
+  $board->set($point, 'O');
+  
+  await computerPlay();
+}
+
+async function computerPlay(): Awaitable<void>{
 
 }
