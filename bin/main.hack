@@ -1,5 +1,5 @@
 #!/usr/bin/env hhvm
-use namespace HH\Lib\{File, IO, Str};
+use namespace HH\Lib\{File, IO, Str, PseudoRandom};
 <<__EntryPoint>>
 async function main(): Awaitable<void> {
   require_once(__DIR__.'/../vendor/autoload.hack');
@@ -42,10 +42,21 @@ async function startGame(): Awaitable<void>{
 
 async function play(Point $point, Board $board) : Awaitable<void>{
   $board->set($point, 'O');
-  
+
   await computerPlay();
 }
 
-async function computerPlay(): Awaitable<void>{
+async function computerPlay(Board $board): Awaitable<void>{
+  $point = getRandomPoint();
+  while(!$board->isSet($point)){
+    $point = getRandomPoint();
+  }
 
+  
+}
+
+async function getRandomPoint(): Awaitable<Point>{
+  $randomX = PseudoRandom\int(0,2);
+  $randomY = PseudoRandom\int(0,2);
+  return new Point($randomX, $randomY);
 }
