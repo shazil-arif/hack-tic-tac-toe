@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hhvm/hhvm-autoload": "^3.2"
+    }
+}
