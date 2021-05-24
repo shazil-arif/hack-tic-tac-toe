@@ -1,0 +1,14 @@
+Tic Tac Toe Game
+
+- Board Module (A 2d array)
+    - set a point
+    - get the value at a point (X or O)
+    - checkWin
+    - print Board
+
+- Main Module (Computer vs player)
+    - Standard Input/Output
+    - while neither player has won: game continues
+    - Get user input (a point on the board)
+    - Parse user input
+    - generate random input for computer
