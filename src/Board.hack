@@ -1,4 +1,3 @@
-include "Point.hack";
 class Board{
     
     private int $n = 3;
@@ -16,6 +15,11 @@ class Board{
     }
 
     public function checkWin(): bool{
+        return false;
 
+    }
+
+    public function isValidPoint(Point $p): bool{
+        return $p->getX() < $this->$n && $p->getY() < $this->$n;
     }
 }
