@@ -8,7 +8,7 @@ class Point{
     }
     
     public function __toString(): string{
-        return "(".$this->x.",".$this->y.")";
+        return "(".$this->x.",".$this->y.")\n";
     }
     public function getX() : int{
         return $this->x;

@@ -1,5 +1,8 @@
 {
     "require": {
         "hhvm/hhvm-autoload": "^3.2"
+    },
+    "scripts": {
+        "start": "hhvm bin/main.hack"
     }
 }
